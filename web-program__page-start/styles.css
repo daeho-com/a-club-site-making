@@ -1,0 +1,8 @@
+@import "css/clubs.css";
+@import "css/index.css";
+@import "css/introduce-club.css";
+
+body {
+    margin : 0px;
+    height : 250vh;
+}
