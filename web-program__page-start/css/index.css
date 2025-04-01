@@ -24,7 +24,7 @@
     box-sizing: border-box;
     padding : 148px 388px;
     */
-    margin-top : 252px;
+    margin-top : 100px;
 }
 
 .search-container {
@@ -54,4 +54,45 @@
 
 .search-input::placeholder {
     color : #bbb;
+}
+
+
+
+
+.dongalee-classification {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgba(0,0,0,0);
+    margin: 1rem auto;
+    max-width: 90%;
+}
+.dongalee-classification div {
+    text-align: center;
+    padding: 1rem;
+    border-width: 60%;
+    height: 300px;
+    width:300px;
+    background-color: rgba(234, 159, 61, 0.7);
+    border-radius: 10px;
+}
+.gobutton{
+    display: flex;
+    padding:10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    background-color: lightblue;
+    margin:50px;
+    margin-left: 120px;
+}
+.gobutton:hover {
+    background-color: deepskyblue; /* 마우스 올릴 때 배경색 변경 */
+}
+.name{
+    margin:50px;
+}
+.detail2{
+    margin:50px;
 }
