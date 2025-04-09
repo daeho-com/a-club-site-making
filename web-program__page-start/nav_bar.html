@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top_nav {
+        display: flex; /* 링크 구획의 정렬을 위해 */
+        align-items: center; /* 수직 가운데 정렬 */
+        background-color: #ffffff; /* 흰색 배경 */
+        height: 60px;
+        padding: 0 20px; /* 네비게이션 바 좌우 내부 여백 */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* box-shadow : 그림자 수평, 수직, 흐림, 색상 */
+        }
+
+        /* 모든 링크 공통 기본 스타일 */
+        .top_nav a {
+        text-decoration: none;  /* <a>에서 기본적인 밑줄을 제거 */
+        white-space: nowrap; /* 텍스트가 계속 한 줄로 표시 */
+        }
+
+        /*로그인 버튼 설정*/
+        .top_nav-login{
+            border: 1px solid #0d6efd; /* 파란색 테두리 */
+            border-radius : 4px;
+            padding: 6px 10px; /* !!! 내부 좌우 여백 조정 (너비 줄임) !!! */
+            font-size: 16px;
+            color: #0d6efd; /* 파란색 글자 */
+            background-color: transparent;
+            margin-left: auto; /* 자동으로 왼쪽 여백을 설정 */
+            text-align: center; /* 텍스트 가운데 정렬 명시 (a태그 기본값 고려) */
+        }
+
+        /* 사이트 이름 스타일 */
+        .site-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000; /* 검정색 */
+            margin-right: auto; /* 오른쪽에 있는 요소들을 밀어냄 */
+        }
+
+        /* 중앙 메뉴 링크 스타일 */
+        .center-link {
+        color: #212529; /* 기본 글자색 (어두운 회색) */
+        font-size: 16px;
+        padding: 0 30px; /* 중앙 링크들 사이의 좌우 여백 */
+        text-align: center;
+        }
+
+        /* 첫 번째 중앙 링크 왼쪽에 간격 추가 */
+        .center-link:first-of-type {
+        margin-left: 20px;
+        }
+
+        /* 마지막 중앙 링크 오른쪽에 간격 추가 */
+        .center-link:last-of-type {
+        margin-right: 20px;
+        }
+
+        /* 마우스 오버 효과 */
+        .top_nav a.center-link:hover {
+        color: #0d6efd; /* 마우스 오버 시 파란색 */
+        }
+
+        .top_nav-login:hover {
+        background-color: #0d6efd; /* 마우스 오버 시 파란색 배경 */
+        color: #ffffff; /* 흰색 글자 */
+        }
+    </style>
+</head>
+<body>
+    <nav class = "nav_bar"> 
+        <div class = "top_nav">
+            <a class="site-name" href = "index.html">사이트 이름</a>
+            <a class = "center-link" href = "clubs_introduce.html">사이트 소개</a>
+            <a class = "center-link" href = "clubs.html">동아리</a>
+            <a class = "center-link" href = "#app">대학생활 필수 앱</a>
+            <a class = "top_nav-login" href="login.html">로그인을 하고 싶다면</a>
+        </div>
+    </nav> 
+</body>
+</html>
