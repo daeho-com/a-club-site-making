@@ -89,12 +89,12 @@
           <div class="HTML-input">
               <h3>HTML 코드 입력</h3>
               <textarea id="htmlInput" rows="10" style="width: 100%" placeholder="여기에 html예제를 입력하세요...""></textarea>
-              <button onclick="updateOutput()" class="update-button">업데이트</button>
+              <button onclick="onlyhtml()" class="update-button">업데이트</button>
               <button onclick="window.location.reload()" class="newdate-button">페이지 새로고침</button>
           </div> 
           <div class="HTML-output">
               <h3>결과 출력</h3>
-              <div id="result"></div>
+              <div id="html-only-result"></div>
           </div>
       </div>
 
@@ -213,30 +213,27 @@
 
       <div class = "code-column">
         <div class="section-reverse">
-          <p> style 태그 안에 클래스를 넣어보고 <p>
-          <p> body 태그 안에 배운 태그를 넣어봐!</p>
+          <p> 배운 Html 코드랑 class를 보고 <p>
+          <p> 한번 따라해보고 위치/색/글자 등등 바꿔봐</p>
         </div>
       </div>
 
       <!--최종 실습 구간-->     
       <div class="introduce-class final-example-height">
 
-        <h3>HTML/CSS 코드 입력</h3>
-        <textarea id="html-CSS-Input" class="introduce-class-text">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Document&lt;/title&gt;
-  &lt;style&gt;&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-        </textarea>
+          <!-- 토글 버튼 -->
+        <div class="final-example-toggle">
+          <button class = "final-example-toggle-button" onclick="ButtonClick('html')">HTML 입력</button>
+          <button class = "final-example-toggle-button" onclick="ButtonClick('css')">CSS 입력</button>
+        </div>
+         <!-- HTML 입력창과 CSS입력창 나누기-->
+        <div class = "final-example-text">
+          <textarea id="HTML-Input" class="introduce-class-text"></textarea>
+          <textarea id="CSS-Input" class="introduce-class-text"></textarea>
+        </div>
+        <!--업데이트 시키는 버튼 / 페이지 새로고침-->
         <div>
-          <button onclick="FinalOutput()" class="update-button">업데이트</button>
+          <button onclick="updateOutput()" class="update-button">업데이트</button>
           <button onclick="window.location.reload()" class="newdate-button">페이지 새로고침</button>
         </div>
       </div> 
@@ -256,48 +253,48 @@
     </div>
 
     <script>
+      // 맨 처음 Html 결과 출력하는 함수
+      function onlyhtml() {
+        // 해당 html 코드
+        var htmlCode = document.getElementById("htmlInput").value;
+        // 결과를 보여줄 영역에 HTML 코드 반영하기
+        document.getElementById("html-only-result").innerHTML = htmlCode;
+
+      }
+
+      // HTMl, CSS 버튼 클릭시 해당 입력창 뜨게 하는 함수
+      function ButtonClick(type) {
+        const htmlEditor = document.getElementById("HTML-Input");
+        const cssEditor = document.getElementById('CSS-Input');
+
+        if (type === 'html') {
+            htmlEditor.style.display = 'block';
+            cssEditor.style.display = 'none';
+        }
+        else if (type == 'css') {
+            htmlEditor.style.display = 'none';
+            cssEditor.style.display = 'block';
+        }
+      }
+
+      // 처음에는 HTML 입력창만 보이게
+      ButtonClick('html');
+
       // 사용자가 작성한 HTML 코드로 결과를 업데이트하는 함수
       function updateOutput() {
             // 텍스트영역에서 HTML 코드 가져오기
-            var htmlCode = document.getElementById("htmlInput").value;
+            var htmlCode = document.getElementById("HTML-Input").value;
+            // 텍스트영역에서 CSS 코드 가져오기
+            var CSSCode = document.getElementById("CSS-Input").value;
             
             // 결과를 보여줄 영역에 HTML 코드 반영하기
-            document.getElementById("result").innerHTML = htmlCode;
+            document.getElementById("html-CSS-result").innerHTML = htmlCode;
+            // 결과를 보여줄 영역에 CSS 코드 반영하기
+            const styleTag = document.createElement('style');
+            styleTag.innerHTML = CSSCode;
+            document.head.appendChild(styleTag); // head 태그에 style 만들어주기!
         }
 
-      function FinalOutput() {
-        var htmlCode = document.getElementById("html-CSS-Input").value;
-        document.getElementById("html-CSS-result").innerHTML = htmlCode;
-      }
-
-
-      const textarea = document.getElementById('html-CSS-Input');
-
-      textarea.addEventListener('keydown', function(event) {
-          if (event.key === 'Tab') {
-              
-
-              const start = textarea.selectionStart;
-              const end = textarea.selectionEnd;
-
-              // 탭 문자를 삽입
-              const value = textarea.value;
-              const beforeTab = value.substring(0, start);
-              const afterTab = value.substring(end);
-
-              // 탭을 삽입
-              textarea.value = beforeTab + '\t' + afterTab;
-
-              // 커서를 탭 문자 뒤로 이동 (커서 위치가 두 번 이동되지 않도록)
-              textarea.selectionStart = textarea.selectionEnd = start + 1;
-          }
-});
-
-
-      
-
-      
-      
     </script>
 </body>
 </html>

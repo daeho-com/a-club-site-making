@@ -310,3 +310,33 @@
 .final-example-height {
     height : 800px;
 }
+
+/* 최종 실습 부분 코드 입력 Text*/
+.final-example-text {
+  width : 100%;
+  height : 100%;
+}
+
+/* HTML 버튼이랑 CSS 버튼 꾸미기*/
+.final-example-toggle {
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom : 10px;
+}
+
+.final-example-toggle-button {
+  font-size : 16px;
+  padding : 10px 20px;
+  color : white;
+  background-color: wheat;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.final-example-toggle-button:first-child {
+  background-color: orangered;
+  margin-right : 30px;
+}
+
