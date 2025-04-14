@@ -395,6 +395,19 @@
             alert("입력이 부족합니다!!");
             return;
         }
+         // 새 수업 객체 만들기
+         const newCourse = {
+            name : courseName,
+            type : courseType,
+            credits : credits,
+            grade : grade,    
+        };
+
+        courseList.push(newCourse);
+        localStorage.setItem('courses', JSON.stringify(courseList));
+
+        // 테이블에 반영
+        renderCourse(newCourse);
 
         // 성적 계산
         const gradePoint = getGradePoint(grade);
@@ -405,21 +418,7 @@
             totalMajorCredits += credits;
             totalMajorGradePoints += gradePoint * credits;
         }
-
-        // 수업 목록 테이블에 추가
-        const tbody = document.getElementById("course-list").getElementsByTagName("tbody")[0];
-        const newRow = tbody.insertRow();
-        newRow.innerHTML = `
-            <td>${courseName}</td>
-            <td>${courseType}</td>
-            <td>${credits}</td>
-            <td>${grade}</td>
-            <td>
-                <div class="delete-wrapper">
-                     <button class="btn-delete" onclick="deleteCourse(this)">X</button>
-                </div>
-            </td>
-        `;
+        calculateAverages();
 
 
 
@@ -428,16 +427,6 @@
         // 버튼 상태 초기화
         document.getElementById("is-major-O").classList.remove('clicked');
         document.getElementById("is-major-X").classList.remove('clicked');
-        // 새 수업 객체 만들기
-        const newCourse = {
-            name : courseName,
-            type : courseType,
-            credits : credits,
-            grade : grade,    
-        };
-
-        courseList.push(newCourse);
-        localStorage.setItem('courses', JSON.stringify(courseList));
 
         // 수업 추가 누르시 메시지 등장
         showToast("수업이 추가되었습니다!");
