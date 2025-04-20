@@ -392,7 +392,7 @@
         // 전공 과목 여부 O버튼이 클릭되어있다면 true, 아니면 false를 반환함
         const isMajor = document.getElementById("is-major-O").classList.contains('clicked');
         // O버튼 클릭시 '전공', 아니면 '교양'
-        let courseType = isMajor ? '전공' : '교양';
+        let courseType = isMajor ? '전공': document.getElementById("general-course").value || '교양';
 
         // 입력값이 없으면 경고 메시지
         if (!courseName || !credits || !grade) {
