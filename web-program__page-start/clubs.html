@@ -8,16 +8,16 @@
 </head>
 <body>
     <!--내비게이션 창 fix-->
-    <nav class = "nav_bar">
+    <nav class = "nav_bar"> 
         <div class = "top_nav">
             <a class="site-name" href = "index.html">사이트 이름</a>
             <a class = "center-link" href = "clubs_introduce.html">사이트 소개</a>
             <a class = "center-link" href = "clubs.html">동아리</a>
             <a class = "center-link" href = "credit_calculator.html">학점 계산기</a>
+            <a class = "center-link" href = "main-home.html">HTML/CSS 스터디</a>
             <a class = "top_nav-login" href="login.html">로그인</a>
         </div>
     </nav>
-
     <header class = "title-page">
         <div class = "title-page-bg">
             <img class = "title-page-bg-img" src ="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F003%2F2023%2F08%2F29%2FNISI20230822_0001345631_web_20230822085356_20230829060313000.jpg&type=sc960_832">
@@ -56,51 +56,57 @@
         </div>
     </header>
 
-    <main class = "introduce-club">
+    <main class = "intro_container">
         <div class = "introduce-club-field">
             <div class = "introduce-club-field__title">
-                <h1>교양분과</h1>
+                <h1 class="intro_h1">교양분과</h1>
             </div>
 
-            <div class = "introduce-club-list">
-                <div class="introduce-club-column">
-                    <div class="introduce-club-column-one">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyQZYdCU8O4a7FwQjIS_paAACEeVq3g2hQ3Q&s">
-                        <h3>리버스REVERSE</h3>
-                        <a href="https://www.instagram.com/reverse_ssu/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="introduce-club-column-one">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4Mzp2S8Z_SpIIvOaXBM8QxYrQy-j_j4zxQ&s">
-                        <h3>SSULOOK</h3>
-                        <a href="https://www.instagram.com/ssulook/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="introduce-club-column-one">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyQZYdCU8O4a7FwQjIS_paAACEeVq3g2hQ3Q&s">
-                        <h3>기우회</h3>
-                        <a href="https://www.instagram.com/ssu_kiwoo/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
+            
+            <div class="intro_rows">
+                <!-- 리버스 -->
+                <div class="intro_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyQZYdCU8O4a7FwQjIS_paAACEeVq3g2hQ3Q&s" alt="리버스REVERSE">
+                    <h3>리버스REVERSE</h3>
+                    <a href="https://www.instagram.com/reverse_ssu/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
                 </div>
-                <div class="introduce-club-column">
-                    <div class="introduce-club-column-one">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMJFOnBwrbLlx5OQXSCJx0eO1HMyk47UjHLw&s">
-                        <h3>SRC</h3>
-                        <a href="https://www.instagram.com/srcsoongsil/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="introduce-club-column-one">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFH9JAwIr-ClvI4hxzk_tmnYtR6Ot9BYLaA&s">
-                        <h3>샌드박스</h3>
-                        <a href="https://www.instagram.com/ssu_ssandbox/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
+        
+                <!-- SSULOOK -->
+                <div class="intro_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4Mzp2S8Z_SpIIvOaXBM8QxYrQy-j_j4zxQ&s" alt="SSULOOK">
+                    <h3>SSULOOK</h3>
+                    <a href="https://www.instagram.com/ssulook/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
+        
+                <!-- 기우회 -->
+                <div class="intro_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyQZYdCU8O4a7FwQjIS_paAACEeVq3g2hQ3Q&s" alt="기우회">
+                    <h3>기우회</h3>
+                    <a href="https://www.instagram.com/ssu_kiwoo/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
+        
+                <!-- SRC -->
+                <div class="intro_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMJFOnBwrbLlx5OQXSCJx0eO1HMyk47UjHLw&s" alt="SRC">
+                    <h3>SRC</h3>
+                    <a href="https://www.instagram.com/srcsoongsil/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
+        
+                <!-- 샌드박스 -->
+                <div class="intro_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFH9JAwIr-ClvI4hxzk_tmnYtR6Ot9BYLaA&s" alt="샌드박스">
+                    <h3>샌드박스</h3>
+                    <a href="https://www.instagram.com/ssu_ssandbox/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
                 </div>
             </div>
         </div>

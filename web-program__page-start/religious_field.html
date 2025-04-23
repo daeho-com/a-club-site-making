@@ -8,12 +8,13 @@
 </head>
 <body>
     <!--내비게이션 창 fix-->
-    <nav class = "nav_bar">
+    <nav class = "nav_bar"> 
         <div class = "top_nav">
             <a class="site-name" href = "index.html">사이트 이름</a>
             <a class = "center-link" href = "clubs_introduce.html">사이트 소개</a>
             <a class = "center-link" href = "clubs.html">동아리</a>
             <a class = "center-link" href = "credit_calculator.html">학점 계산기</a>
+            <a class = "center-link" href = "main-home.html">HTML/CSS 스터디</a>
             <a class = "top_nav-login" href="login.html">로그인</a>
         </div>
     </nav>
@@ -56,30 +57,28 @@
         </div>
     </header>
 
-    <main class = "introduce-club">
+    <main class = "rel_container">
         <div class = "introduce-club-field">
             <div class = "introduce-club-field__title">
-                <h1>종교분과</h1>
+                <h1 class="rel_h1">종교분과</h1>
             </div>
 
-            <div class = "introduce-club-list">
-                <div class="introduce-club-column">
-                    <div class="introduce-club-column-one">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfVznkoRo1V6_4Rtzbfo22aC6McyT-sHC1QA&s">
-                        <h3>CCC</h3>
-                        <a href="https://www.instagram.com/ssuccc/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="introduce-club-column-one">
-                        <img src="https://blog.kakaocdn.net/dn/0KzHB/btsIz7BrNGX/Rva5TALhRYyZTmxvkqpMG0/img.jpg">
-                        <h3>IVF</h3>
-                        <a href="https://www.instagram.com/ssivf/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
+            <div class="rel-rows">
+                <!-- 첫 번째 카드 (CCC) -->
+                <div class="rel-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfVznkoRo1V6_4Rtzbfo22aC6McyT-sHC1QA&s">
+                    <h3>CCC</h3>
+                    <a href="https://www.instagram.com/ssuccc/">
+                        <i class="fa-brands fa-instagram"></i></a>
                 </div>
-               
+        
+                <!-- 두 번째 카드 (두메) -->
+                <div class="rel-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-kXs_1sz2KxxhJ6BecAwLK3wssrypMIFE2A&s">
+                    <h3>두메</h3>
+                    <a href="https://www.instagram.com/doome_1987/">
+                        <i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </main>

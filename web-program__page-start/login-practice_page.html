@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>CodePicnic</title>
-  <link rel="stylesheet" href="login-practice_page.css" />
+  <link rel="stylesheet" href="css/login-practice_page.css" />
 </head>
 <body>
   <div class="app-container">
@@ -17,18 +17,22 @@
       <div class="main-background"></div>
       <div class="sidebar-bg"></div>
       <!-- 사이드바 -->
-      <div class="sidebar-item item-back"   data-page="back-to-the-main_page" onclick="window.location.href='main-home.html'">뒤로가기</div>
       <div class="sidebar-item item-start"   data-page="start">시작하기</div>
       <div class="sidebar-item item-input"   data-page="input">입력받기</div>
       <div class="sidebar-item item-send"    data-page="send">전송하기</div>
       <div class="sidebar-item item-style"   data-page="style">꾸며보기</div>
       <div class="sidebar-item item-doit"    data-page="doit">Do it!</div>
+      <div class="sidebar-item item-back"   data-page="back-to-the-main_page" onclick="window.location.href='main-home.html'">뒤로가기</div>
       <!-- 콘텐츠 -->
       <div class="main-content" id="content"></div>
     </div>
   </div>
 
   <script>
+
+    let savedHTML = '<!-- HTML code here -->';
+    let savedCSS  = '/* CSS code here */';
+
     // Do it! 페이지 이동 함수
     function goToDoItPage() {
       document.querySelector('.item-doit').click();
@@ -247,15 +251,29 @@ body {
       (function(){
         const htmlEditor = document.getElementById('html-editor');
         const cssEditor  = document.getElementById('css-editor');
+
+        // 4-1) 에디터 초기화: 이전에 저장된 코드 불러오기
+        htmlEditor.value = savedHTML;
+        cssEditor.value  = savedCSS;
+
+        // 4-2) 입력 시마다 전역 변수 갱신
+        htmlEditor.addEventListener('input', () => { savedHTML = htmlEditor.value; });
+        cssEditor.addEventListener('input',  () => { savedCSS  = cssEditor.value; });
+
+        // 토글 버튼
         document.getElementById('html-btn').onclick = ()=> {
-          htmlEditor.style.display='block'; cssEditor.style.display='none';
+          htmlEditor.style.display = 'block';
+          cssEditor.style.display  = 'none';
         };
         document.getElementById('css-btn').onclick = ()=> {
-          cssEditor.style.display='block'; htmlEditor.style.display='none';
+          cssEditor.style.display  = 'block';
+          htmlEditor.style.display = 'none';
         };
+
+        // Run it!
         document.getElementById('run-btn').onclick = ()=> {
           const combined = htmlEditor.value + "<style>" + cssEditor.value + "</style>";
-          const iframe = document.getElementById('result');
+          const iframe   = document.getElementById('result');
           iframe.contentWindow.document.open();
           iframe.contentWindow.document.write(combined);
           iframe.contentWindow.document.close();
@@ -263,20 +281,24 @@ body {
       })();
     `;
 
-    // 사이드바 클릭 처리
+// 5) 사이드바 클릭 처리
     document.querySelectorAll('.sidebar-item').forEach(item => {
       item.addEventListener('click', () => {
         document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
         item.classList.add('active');
+
         const key = item.dataset.page;
+        const container = document.getElementById('content');
+
         if (key === 'doit') {
-          const container = document.getElementById('content');
+          // Do it! 마크업 삽입
           container.innerHTML = pages.doitMarkup;
+          // 스크립트 삽입 (위에서 정의한 doitScriptCode 실행)
           const s = document.createElement('script');
           s.textContent = doitScriptCode;
           container.appendChild(s);
         } else {
-          document.getElementById('content').innerHTML = pages[key] || '';
+          container.innerHTML = pages[key] || '';
         }
       });
     });
